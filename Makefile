@@ -58,12 +58,7 @@ check: $(RESULT_DIR) $(RESULT) all
 	fi; \
 
 clean:
-	$(RM) $(BUILD_DIR)/*
-	$(RM) -rf $(RESULT_DIR)
-
-
-
-
+	rm -rf $(BUILD_DIR)/
 
 
 
