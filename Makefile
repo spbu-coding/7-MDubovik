@@ -39,8 +39,8 @@ $(RESULT_DIR)/%.txt: $(TEST_DIR)/%.in $(TEST_DIR)/%.out $(BUILD_DIR)/$(NAME)
 	program_out=$(RESULT_DIR)/$(TMP_FILE); \
 	$(BUILD_DIR)/$(NAME) $< > $$program_out; \
 	cmp $$test_out $$program_out > $@; \
-	if [ $$? = 0 ]; \
-		then echo $(SUCCESS_MSG) > $@; \
+	if [ $$? = 0 ]; then \
+		echo $(SUCCESS_MSG) > $@; \
 	fi
 
 check: $(RESULT_DIR) $(RESULT) all
@@ -49,12 +49,12 @@ check: $(RESULT_DIR) $(RESULT) all
 	do \
 		echo "Test $$filename:"; \
 		cat $$filename; \
-		if [ "$$(cat $$filename)" != "$(SUCCESS_MSG)" ]; \
-		then test_fail=$$(($$test_fail + 1)); \
+		if [ "$$(cat $$filename)" != "$(SUCCESS_MSG)" ]; then \
+			test_fail=$$(($$test_fail + 1)); \
 		fi; \
 	done; \
 	if [ $$test_fail != 0 ]; \
-	then exit 1;
+	then exit 1; \
 	fi; \
 
 clean:
