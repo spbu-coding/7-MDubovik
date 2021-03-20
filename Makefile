@@ -49,8 +49,8 @@ check: $(RESULT_DIR) $(RESULT) all
 	do \
 		echo "Test $$filename:"; \
 		cat $$filename; \
-		if [ "$$(cat $$filename)" != "$(SUCCESS_MSG)" ]; then \
-			test_fail=$$(($$test_fail + 1)); \
+		if [ "$$(cat $$filename)" != "$(SUCCESS_MSG)" ]; \
+		then test_fail=$$(($$test_fail + 1)); \
 		fi; \
 	done; \
 	if [ $$test_fail != 0 ]; \
